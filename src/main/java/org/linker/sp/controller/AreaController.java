@@ -1,8 +1,5 @@
 package org.linker.sp.controller;
 
-import org.linker.foun.dto.exception.AppException;
-import org.linker.foun.dto.response.ServerResponse;
-import org.linker.sp.dto.MessageCode;
 import org.linker.sp.entity.Area;
 import org.linker.sp.service.AreaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +24,11 @@ public class AreaController {
     private AreaService areaService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    private ServerResponse<List<Area>> listArea(){
+    private Map<String, Object> listArea(){
+        Map<String, Object> modelMap = new HashMap<>();
         List<Area> areaList = areaService.getAreaList();
-        ServerResponse<List<Area>> bySuccess = ServerResponse.createBySuccess(areaList);
-        return ServerResponse.createBySuccess(areaList);
+        modelMap.put("list", areaList);
+        return modelMap;
     }
 
     @RequestMapping(value = "/get/{areaId}", method = RequestMethod.GET)
