@@ -18,6 +18,14 @@ public class Area {
 
     private Date lastEditTime;
 
+    public Area() {
+    }
+
+    public Area(String areaName, Integer priority) {
+        this.areaName = areaName;
+        this.priority = priority;
+    }
+
     public Integer getAreaId() {
         return areaId;
     }

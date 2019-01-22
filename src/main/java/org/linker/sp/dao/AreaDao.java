@@ -10,8 +10,14 @@ import java.util.List;
  */
 public interface AreaDao {
     List<Area> queryAreas();
+
     Area queryById(int areaId);
+
     int insertArea(Area area);
+
     int updateArea(Area area);
+
     int deleteArea(int areaId);
+
+    void insertBatch(List<Area> areas);
 }

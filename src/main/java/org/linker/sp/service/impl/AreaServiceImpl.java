@@ -87,4 +87,16 @@ public class AreaServiceImpl implements AreaService {
             throw new RuntimeException("区域Id不能为空！");
         }
     }
+
+    @Override
+    public void insertBatch(List<Area> areas) {
+        areaDao.insertBatch(areas);
+    }
+
+    @Override
+    public void insertForeach(List<Area> areas) {
+        for (Area area : areas) {
+            areaDao.insertArea(area);
+        }
+    }
 }
